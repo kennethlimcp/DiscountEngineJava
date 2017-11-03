@@ -11,16 +11,44 @@ public class Discount {
 		Scanner sc = new Scanner(System.in);
 
 		while(true) {
-			System.out.println("\nPlease enter product number: ");	
-			int item = sc.nextInt();
 			
-			d.addItem(item);
+			System.out.println("Enter \"a\" to add item");
+			System.out.println("Enter \"d\" to delete item");
+			System.out.println("Enter \"e\" to exit");
+			
+			String command = sc.nextLine();
+			command = command.toLowerCase();
+			
+			if(command.equals("d")) {
+				System.out.println("\nPlease enter product number: ");	
+				int item = sc.nextInt();
+				
+				d.deleteItem(item);
+				
+				sc.nextLine();
+			}
+			else if(command.equals("a")) {
+				System.out.println("\nPlease enter product number: ");	
+				int item = sc.nextInt();
+				
+				d.addItem(item);
+				sc.nextLine();
+
+			}
+			else if(command.equals("e")) {
+				System.out.println("Bye!");	
+				break;
+			}
+			else {
+				System.out.println("Invalid option!");
+			}
+			
 			
 			d.printProductList();
+			
 		}
 		
-//		System.out.println("Going to exit");
-//		sc.close();
+		sc.close();
 	}
 	
 	public String echo(String s) {
